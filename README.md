@@ -7,6 +7,22 @@ Step by step，流程指示器。
 <img src="art/snapshot.png"></img>
 
 ##how to use
+
+Add it in your root build.gradle at the end of repositories:
+
+	repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+Step 2. Add the dependency
+	
+	dependencies {
+	        compile 'com.github.baoyachi:StepView:v1.0'
+	}		
+		
+		
+
+
 in xml
 
 ```java
