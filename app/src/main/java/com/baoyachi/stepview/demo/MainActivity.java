@@ -1,8 +1,11 @@
 package com.baoyachi.stepview.demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.baoyachi.stepview.StepView;
 
@@ -35,10 +38,11 @@ public class MainActivity extends AppCompatActivity
         StepView setpview0 = (StepView) findViewById(R.id.step_view0);
         List<String> list0 = new ArrayList<>();
         list0.add("接单");
+        list0.add("打包");
         list0.add("出发");
-        list0.add("开始");
-        list0.add("结束");
+        list0.add("送单");
         list0.add("完成");
+        list0.add("支付");
         setpview0.setStepsViewIndicatorComplectingPosition(2)//设置完成的步数
                 .setStepViewTexts(list0)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getBaseContext(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
@@ -71,7 +75,7 @@ public class MainActivity extends AppCompatActivity
     {
         List<String> list2 = new ArrayList<>();
         list2.add("接单");
-        list2.add("出发");
+        list2.add("打包");
         StepView setpview2 = (StepView) findViewById(R.id.step_view2);
         setpview2.setStepsViewIndicatorComplectingPosition(0)//设置完成的步数
                 .setStepViewTexts(list2)//总步骤
@@ -88,8 +92,8 @@ public class MainActivity extends AppCompatActivity
     {
         List<String> list3 = new ArrayList<>();
         list3.add("接单");
+        list3.add("打包");
         list3.add("出发");
-        list3.add("开始");
         StepView setpview3 = (StepView) findViewById(R.id.step_view3);
         setpview3.setStepsViewIndicatorComplectingPosition(1)//设置完成的步数
                 .setStepViewTexts(list3)//总步骤
@@ -106,9 +110,9 @@ public class MainActivity extends AppCompatActivity
     {
         List<String> list4 = new ArrayList<>();
         list4.add("接单");
+        list4.add("打包");
         list4.add("出发");
-        list4.add("开始");
-        list4.add("结束");
+        list4.add("送单");
         StepView setpview4 = (StepView) findViewById(R.id.step_view4);
         setpview4.setStepsViewIndicatorComplectingPosition(2)//设置完成的步数
                 .setStepViewTexts(list4)//总步骤
@@ -127,10 +131,10 @@ public class MainActivity extends AppCompatActivity
     {
         List<String> list5 = new ArrayList<>();
         list5.add("接单");
+        list5.add("打包");
         list5.add("出发");
-        list5.add("开始");
-        list5.add("结束");
-        list5.add("结账");
+        list5.add("送单");
+        list5.add("完成");
         StepView setpview5 = (StepView) findViewById(R.id.step_view5);
         setpview5.setStepsViewIndicatorComplectingPosition(3)//设置完成的步数
                 .setStepViewTexts(list5)//总步骤
@@ -149,11 +153,11 @@ public class MainActivity extends AppCompatActivity
 
         List<String> list6 = new ArrayList<>();
         list6.add("接单");
+        list6.add("打包");
         list6.add("出发");
-        list6.add("开始");
-        list6.add("结束");
-        list6.add("付账");
+        list6.add("送单");
         list6.add("完成");
+        list6.add("支付");
         setpview6.setStepsViewIndicatorComplectingPosition(4)//设置完成的步数
                 .setStepViewTexts(list6)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getBaseContext(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
@@ -163,6 +167,25 @@ public class MainActivity extends AppCompatActivity
                 .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(getBaseContext(), R.drawable.complted))//设置StepsViewIndicator CompleteIcon
                 .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(getBaseContext(), R.drawable.default_icon))//设置StepsViewIndicator DefaultIcon
                 .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(getBaseContext(), R.drawable.attention));//设置StepsViewIndicator AttentionIcon
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu_draw_canvas, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if(item.getItemId() == R.id.action_drawcanvas)
+        {
+            Intent intent = new Intent(this,DrawCanvasActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
